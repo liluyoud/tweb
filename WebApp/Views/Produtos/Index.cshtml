@@ -13,10 +13,11 @@
         Descricao: @item.Descricao<br />
         Valor: @item.Valor<br />
         Quantidade: @item.Quantidade<br />
+        <a asp-action="Visualizar" asp-route-id="@item.Id">Visualizar</a>
     </p>
 }
 
 
 <p>
-    Total de produtos: @Model.TotalProdutos
+    Total de produtos: @Model.Produtos.Count()
 </p>

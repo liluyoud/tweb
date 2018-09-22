@@ -12,6 +12,12 @@
     <Content Update="Views\Home\Ola.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Produtos\Editar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Produtos\Visualizar.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Produtos\Novo.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

@@ -1,0 +1,25 @@
+﻿@model WebApp.Models.Produtos.VisualizarViewModel
+
+<h2>Dados do Produto</h2>
+
+<form asp-action="Novo">
+    <p>
+        @Model.Id
+    </p>
+    <p>
+        @Model.Nome
+    </p>
+    <p>
+        @Model.Descricao
+    </p>
+    <p>
+        @Model.Valor
+    </p>
+    <p>
+        @Model.Quantidade
+    </p>
+    <p>
+        <a asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
+        <a asp-action="Excluir" asp-route-id="@Model.Id">Excluir</a>
+    </p>
+</form>

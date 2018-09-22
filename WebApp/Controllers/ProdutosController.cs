@@ -49,6 +49,59 @@ namespace WebApp.Controllers
             db.Produtos.Add(produto);
             db.SaveChanges();
 
+            return RedirectToAction("Visualizar", new { Id = produto.Id });
+        }
+
+        [HttpGet]
+        public IActionResult Visualizar(int id)
+        {
+            var produto = db.Produtos.SingleOrDefault(p => p.Id == id);
+            var model = new VisualizarViewModel() {
+                Id = produto.Id,
+                Nome = produto.Nome,
+                Descricao = produto.Descricao,
+                Valor = produto.Valor,
+                Quantidade = produto.Quantidade
+            };
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            var produto = db.Produtos.SingleOrDefault(p => p.Id == id);
+            var model = new EditarViewModel()
+            {
+                Id = produto.Id,
+                Nome = produto.Nome,
+                Descricao = produto.Descricao,
+                Valor = produto.Valor,
+                Quantidade = produto.Quantidade
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(EditarViewModel model)
+        {
+            var produto = db.Produtos.SingleOrDefault(p => p.Id == model.Id);
+            produto.Nome = model.Nome;
+            produto.Descricao = model.Descricao;
+            produto.Valor = model.Valor;
+            produto.Quantidade = model.Quantidade;
+            db.SaveChanges();
+            model.Mensagem = "Alterado com sucesso";
+
+            return View(model);
+        }
+
+        public IActionResult Excluir(int id)
+        {
+            var produto = db.Produtos.SingleOrDefault(p => p.Id == id);
+            db.Produtos.Remove(produto);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }
