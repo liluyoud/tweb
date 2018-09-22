@@ -29,9 +29,27 @@ namespace WebApp.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Novo()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Novo(NovoViewModel novo)
+        {
+            var produto = new Produto()
+            {
+                Nome = novo.Nome,
+                Descricao = novo.Descricao,
+                Valor = novo.Valor,
+                Quantidade = novo.Quantidade
+            };
+
+            db.Produtos.Add(produto);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

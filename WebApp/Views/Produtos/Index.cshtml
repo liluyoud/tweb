@@ -1,7 +1,9 @@
 ﻿@model WebApp.Models.Produtos.IndexViewModel
 
 <h2>@Model.Titulo</h2>
-<p><a href="#">Adiconar novo Produto</a></p>
+<p>
+    <a asp-controller="Produtos" asp-action="Novo">Adiconar novo Produto</a>
+</p>
 
 @foreach (var item in Model.Produtos)
 {

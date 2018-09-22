@@ -1,1 +1,25 @@
-﻿<h2>Novo Produto</h2>
+﻿@model WebApp.Models.Produtos.NovoViewModel
+
+<h2>Novo Produto</h2>
+
+<form asp-action="Novo">
+    <p>
+        <label asp-for="Nome"></label>
+        <input asp-for="Nome" />
+    </p>
+    <p>
+        <label asp-for="Descricao"></label>
+        <input asp-for="Descricao" />
+    </p>
+    <p>
+        <label asp-for="Valor"></label>
+        <input asp-for="Valor" />
+    </p>
+    <p>
+        <label asp-for="Quantidade"></label>
+        <input asp-for="Quantidade" />
+    </p>
+    <p>
+        <button type="submit">Criar Novo</button>
+    </p>
+</form>
