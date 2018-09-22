@@ -1,0 +1,20 @@
+﻿@model WebApp.Models.Produtos.IndexViewModel
+
+<h2>@Model.Titulo</h2>
+<p><a href="#">Adiconar novo Produto</a></p>
+
+@foreach (var item in Model.Produtos)
+{
+    <p>
+        Id: @item.Id<br />
+        Nome: @item.Nome<br />
+        Descricao: @item.Descricao<br />
+        Valor: @item.Valor<br />
+        Quantidade: @item.Quantidade<br />
+    </p>
+}
+
+
+<p>
+    Total de produtos: @Model.TotalProdutos
+</p>
